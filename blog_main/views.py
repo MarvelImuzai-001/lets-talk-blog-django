@@ -5,6 +5,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import auth
 
 
+
 def home(request):
     featured_posts = Blog.objects.filter(is_featured=True, status="Published").order_by("updated_at")
     posts = Blog.objects.filter(is_featured=False, status="Published")
@@ -19,7 +20,7 @@ def register(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("home")
+            return redirect("login")
         else:
             print(form.errors)
     else:
@@ -39,7 +40,9 @@ def login(request):
             user = auth.authenticate(username=username, password=password)
             if user is not None:
                 auth.login(request, user)
-            return redirect("dashboard")
+                
+            
+            return redirect("successful")
     form = AuthenticationForm()
     context = {
         "form" : form,
@@ -49,3 +52,7 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect("home")
+
+def successful(request):
+    return render(request, "successful.html")
+

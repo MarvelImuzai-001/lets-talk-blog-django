@@ -1,0 +1,109 @@
+/* stylelint-disable selector-list-comma-newline-after */
+
+.blog-header {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.blog-header-logo {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+  font-size: 2.25rem;
+}
+
+.blog-header-logo:hover {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+}
+
+.display-4 {
+  font-size: 2.5rem;
+}
+@media (min-width: 768px) {
+  .display-4 {
+    font-size: 3rem;
+  }
+}
+
+.flex-auto {
+  flex: 0 0 auto;
+}
+
+.h-250 { height: 250px; }
+@media (min-width: 768px) {
+  .h-md-250 { height: 250px; }
+}
+
+/* Pagination */
+.blog-pagination {
+  margin-bottom: 4rem;
+}
+
+/*
+ * Blog posts
+ */
+.blog-post {
+  margin-bottom: 4rem;
+}
+.blog-post-title {
+  font-size: 2.5rem;
+}
+.blog-post-meta {
+  margin-bottom: 1.25rem;
+  color: #727272;
+}
+
+/*
+ * Footer
+ */
+.blog-footer {
+  padding: 2.5rem 0;
+  color: #727272;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: .05rem solid #e5e5e5;
+}
+.blog-footer p:last-child {
+  margin-bottom: 0;
+}
+
+.alert-card {
+  position: fixed;
+  top: var(--nav-height);
+  transform: translateY(100px);
+  right: 15px;
+  padding: 15px 25px;
+  background-color: var(--color-bg-2); /* Red background */
+  color: var(--text-color-1); /* White text */
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: slideIn 0.5s forwards, fadeOut 0.5s 4.5s forwards;
+  z-index: 1000;
+}
+.alert-error.alert-card::after{
+  background-color: #e71841;
+}
+.alert-success.alert-card::after{
+  background-color: #1e9c1e;
+}
+.alert-info.alert-card::after{
+  background-color: #6495ed;
+}
+.alert-warning.alert-card::after{
+  background-color: #d5b607;
+}
+.alert-card::after{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 4px;
+  content: '';
+  border-radius: .35rem 0 0 .35rem;
+}
+.alert-message {
+  margin-right: 15px;
+}

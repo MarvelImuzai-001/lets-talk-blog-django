@@ -1,7 +1,9 @@
 {% extends "base.html" %}
-
 {% block content %}
 {% load crispy_forms_tags %}
+{% if messages %}
+    {{messages}}
+{% endif%}
 <div class="container">
     <h3 class="text-center">Login</h3>
     <div class="row justify-content-center">
@@ -9,7 +11,8 @@
             <form action="{% url 'login' %}" method="POST">
                 {% csrf_token %}
                 {{ form | crispy }}
-                <button type="submit" class="btn btn-success btn-block">Submit</button>
+                <button type="submit" class="btn btn-success btn-block ">Submit</button>
+                <p class="text-center mt-2">Dont have an account? <a href="{% url 'register' %}">Register</a></p>
             </form>
         </div>
     </div>
